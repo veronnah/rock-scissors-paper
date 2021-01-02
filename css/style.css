@@ -1,0 +1,186 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #3a997d;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	color:#fff;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+.game {
+	border:3px solid #fff;
+	width: 100%;
+	max-width: 700px;
+	padding:50px;
+	border-radius: 3px;
+}
+.game h1 {
+	font-size: 30px;
+	text-align: center;
+}
+.counter-block {
+	width: 200px;
+	border:2px solid #000;
+	margin:20px auto;
+	padding: 10px;
+	display: flex;
+	justify-content: space-around;
+	font-size: 44px;
+}
+.counter-block span {
+	margin:0 25px;
+}
+.count {
+	position: relative;
+	width: 50px;
+	text-align: center;
+}
+.count::before {
+	content:"";
+	display: block;
+	padding:3px 8px;
+	background: #214137;
+	color: #fff;
+	font-size: 14px;
+	position: absolute;
+	top:50px;
+}
+.count-user::before {
+	content:"Me";
+	left:-5px;
+}
+.count-comp::before {
+	content:"Computer";
+	right:-5px;
+}
+.figure-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding:30px 20px;
+}
+.user-field,
+.comp-field {
+	width: 50%;
+	display: flex;
+}
+.field {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border:4px solid #fff;
+	cursor: pointer;
+	margin:5px;
+	transition:.2s;
+	overflow: hidden;
+	box-shadow: 3px 3px 5px #000;
+	outline: none;
+}
+.result {
+	text-align: center;
+}
+.field.active {
+	background-color: rgb(58, 95, 80);
+}
+.field.error {
+	background-color: rgb(150, 33, 25);
+}
+.comp-field {
+	justify-content: flex-end;
+}
+.rock {
+	background: url(../img/rock.png) center no-repeat;
+}
+.scissors {
+	background: url(../img/scissors.png) center no-repeat;
+}
+.paper {
+	background: url(../img/paper.png) center no-repeat;
+}
+.comp-field.blink .rock {
+	animation: blink 0.3s linear infinite;
+}
+.comp-field.blink .scissors {
+	animation: blink 0.3s 0.1s linear infinite;
+}
+.comp-field.blink .paper {
+	animation: blink 0.3s 0.2s linear infinite;
+}
+.comp-field.blink {
+	animation-play-state: paused;
+}
+@keyframes blink {
+	100% {background-color: rgb(71, 136, 80);}
+}
+.buttons {
+	padding:20px 15px;
+	text-align: center;
+}
+.buttons button {
+	margin:0 8px;
+	cursor:pointer;
+	border:none;
+	border-radius:30px;
+	color:#fff;
+	text-transform: uppercase;
+	padding:10px 20px;
+	font-weight: bold;
+	font-size: 16px;
+	box-shadow: 2px 3px 0 #3a6952;
+	transition:.2s;
+	outline: none;
+}
+.buttons button:hover,
+.buttons button:active {
+	transform:translate(1px,1px);
+	box-shadow: 1px 1px 0 #182017;
+}
+.play {
+	background: linear-gradient(180deg, #546b60, #202923);
+}
+
+
+@media(max-width:700px) {
+	.game {
+		padding: 10px;
+	}
+	.figure-container {
+		flex-direction: column;
+	}
+	.user-field,
+	.comp-field {
+		width: 100%;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+	.user-field {
+		margin-bottom: 20px;
+	}
+	.user-field::before {
+		content:"Игрок:";
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+	}
+	.comp-field::before {
+		content:"Компьютер:";
+		display: block;
+		width: 100%;
+		font-size: 20px;
+		text-align: center;
+	}
+	.game h1 {
+		font-size: 20px;
+	}
+}
