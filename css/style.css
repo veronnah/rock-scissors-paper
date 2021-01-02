@@ -167,14 +167,14 @@ body {
 		margin-bottom: 20px;
 	}
 	.user-field::before {
-		content:"Игрок:";
+		content:"Me:";
 		display: block;
 		width: 100%;
 		font-size: 20px;
 		text-align: center;
 	}
 	.comp-field::before {
-		content:"Компьютер:";
+		content:"Computer:";
 		display: block;
 		width: 100%;
 		font-size: 20px;
